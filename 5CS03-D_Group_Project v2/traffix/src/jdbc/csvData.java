@@ -33,6 +33,7 @@ public class csvData {
             ArrayList list = new ArrayList();
             ArrayList IdChecker = new ArrayList();
             int count = 0;
+            
             while ((strLine = br.readLine()) != null) {
                 list.add(strLine);
                 count++;
@@ -65,7 +66,6 @@ public class csvData {
                     } 
                 else {
                     System.out.println("Duplicate record with pk :" + splitSt[5]);
-                    //IdChecker.add(splitSt[5]);
                 }
                 
                 //if (!IdChecker.contains(splitSt[7])) {
@@ -106,17 +106,11 @@ public class csvData {
 //                    System.out.println("Duplicate record with pk :" + splitSt[9]);
 //                }
 //                
-                if (!IdChecker.contains(splitSt[0])) {
+                //if (!IdChecker.contains(splitSt[0])) {
                     IdChecker.add(splitSt[0]);
                     int count_point_id = Integer.parseInt(splitSt[0]);
                     String start_junction_road_name = splitSt[11];
-                    if (splitSt[11].isEmpty()){
-                        splitSt[11] = " ";
-                    }
-                    String end_junction_road_name = splitSt[12];
-                    if (splitSt[12].isEmpty()){
-                        splitSt[12] = " ";
-                    }
+                    String end_junction_road_name = splitSt[12];                
                     int easting = Integer.parseInt(splitSt[13]);
                     int northing = Integer.parseInt(splitSt[14]);
                     String latitude = splitSt[15];
@@ -129,7 +123,7 @@ public class csvData {
                     
                    
                     sqlString = "INSERT OR IGNORE INTO Count_Point (count_point_id, start_junction_road_name, end_junction_road_name, easting, northing, latitude, longitude, link_length_km, link_length_miles) VALUES ("+count_point_id+", '" +start_junction_road_name+ "', '"+end_junction_road_name+"',"+easting+", "+northing+", '"+latitude+"', '"+longitude+"', "+link_length_km+", "+link_length_miles+");";
-                    System.out.println("sqlString : "+ sqlString);
+                    System.out.println("sqlString : " + sqlString);
                     
                     con.setAutoCommit(false);
                     stmt = con.createStatement();
@@ -138,9 +132,9 @@ public class csvData {
                     stmt.close();
                     con.commit();
 
-                } else {
-                    System.out.println("Duplicate record with pk :" + splitSt[0]);
-                }
+                //} else {
+                    //System.out.println("Duplicate record with pk :" + splitSt[0]);
+                //}
                
             }
         } catch (Exception e) {

@@ -39,9 +39,11 @@ public class registeredUserTable {
 //                + "'" + email + "'" 
 //                + "'" + password + "'" 
 //            + ")";
-        
+       // "INSERT OR IGNORE INTO Road (road_name, road_type) VALUES ('" + road_name + "','" + road_type + "');";
         //String sqlString = ("INSERT INTO Users(username,adminFlag,firstName,lastName,email,password) " + "VALUES ('Terry1','No','Terry','Ram','Ter1@gmail.com','123456')");
-        String sqlString = ("INSERT OR IGNORE INTO Users(username,adminFlag,firstName,lastName,email,password) " + "VALUES ('George1','No','George','Smith','g1','123')");
+        String sqlString = ("INSERT OR IGNORE INTO Users(username,adminFlag,firstName,lastName,email,password) "
+                + "VALUES ('" + username + "','" + adminFlag + "','" + firstName + "','" + lastName + "','" + email + "','" + password + "' );");
+        
         try {
             con.setAutoCommit(false);
             stmt = con.createStatement();
