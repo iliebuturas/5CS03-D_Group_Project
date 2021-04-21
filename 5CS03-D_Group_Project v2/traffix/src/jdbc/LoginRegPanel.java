@@ -66,6 +66,7 @@ public class LoginRegPanel extends javax.swing.JFrame {
         ConfirmPasswordLb = new javax.swing.JLabel();
         rPassword = new javax.swing.JPasswordField();
         jPasswordField2 = new javax.swing.JPasswordField();
+        ClearBtn = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -220,31 +221,43 @@ public class LoginRegPanel extends javax.swing.JFrame {
         ConfirmPasswordLb.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         ConfirmPasswordLb.setText("Confirm password");
 
+        ClearBtn.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        ClearBtn.setText("Clear form");
+        ClearBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout SignUpPanelLayout = new javax.swing.GroupLayout(SignUpPanel);
         SignUpPanel.setLayout(SignUpPanelLayout);
         SignUpPanelLayout.setHorizontalGroup(
             SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SignUpPanelLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PasswordLb)
-                    .addComponent(EmailLb)
-                    .addComponent(rEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                    .addComponent(LastNameLb)
-                    .addComponent(rLastName)
-                    .addComponent(FirstNamelb)
-                    .addComponent(rFirstName)
-                    .addComponent(UsernameLb)
-                    .addComponent(SignupText)
-                    .addComponent(SignupTitle)
-                    .addComponent(rUsername)
-                    .addComponent(ConfirmPasswordLb)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SignUpPanelLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(SignUpPanelLayout.createSequentialGroup()
+                        .addGroup(SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(PasswordLb)
+                            .addComponent(EmailLb)
+                            .addComponent(rEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(LastNameLb)
+                            .addComponent(rLastName)
+                            .addComponent(FirstNamelb)
+                            .addComponent(rFirstName)
+                            .addComponent(UsernameLb)
+                            .addComponent(SignupText)
+                            .addComponent(SignupTitle)
+                            .addComponent(rUsername)
+                            .addComponent(ConfirmPasswordLb)
+                            .addComponent(rPassword)
+                            .addComponent(jPasswordField2))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(SignUpPanelLayout.createSequentialGroup()
                         .addComponent(RegisterBtn)
-                        .addGap(54, 54, 54))
-                    .addComponent(rPassword)
-                    .addComponent(jPasswordField2))
-                .addContainerGap(104, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ClearBtn)
+                        .addGap(93, 93, 93))))
         );
         SignUpPanelLayout.setVerticalGroup(
             SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,7 +266,7 @@ public class LoginRegPanel extends javax.swing.JFrame {
                 .addComponent(SignupTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SignupText)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(UsernameLb)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -277,9 +290,11 @@ public class LoginRegPanel extends javax.swing.JFrame {
                 .addComponent(ConfirmPasswordLb)
                 .addGap(15, 15, 15)
                 .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(RegisterBtn)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addGroup(SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RegisterBtn)
+                    .addComponent(ClearBtn))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
@@ -349,13 +364,28 @@ public class LoginRegPanel extends javax.swing.JFrame {
                     registeredUserTable.insert(rUsername.getText(), "no", rFirstName.getText(), rLastName.getText(), rEmail.getText(), rPassword.getText());
 
                     System.out.println(rusername);
-                    JOptionPane.showMessageDialog(this, "User registered! test1");   
+                    //JOptionPane.showMessageDialog(this, "User registered! test1");   
                 }
             }
         } 
         catch (SQLException ex) 
         {
             System.out.println("Error: " + ex.getMessage());
+        }
+        
+        String pwd1 = rPassword.getText();
+        String pwd2 = jPasswordField2.getText();
+        
+        if(!pwd1.equals(pwd2))
+        {
+            JOptionPane.showMessageDialog(this, "Passwords do not match!");
+            return;
+        }
+        
+        if(rusername.equals("") || rFirstName.equals("") || rLastName.equals("") || rEmail.equals("") || pwd1.equals("") || pwd2.equals(""))
+        {
+            JOptionPane.showMessageDialog(this, "Please fill out all fields!");
+                    return;
         }
     }//GEN-LAST:event_RegisterBtnActionPerformed
 
@@ -389,6 +419,16 @@ public class LoginRegPanel extends javax.swing.JFrame {
     private void ShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ShowPasswordActionPerformed
+
+    private void ClearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearBtnActionPerformed
+
+        rUsername.setText("");
+        rFirstName.setText("");
+        rLastName.setText("");
+        rEmail.setText("");
+        rPassword.setText("");
+        jPasswordField2.setText("");
+    }//GEN-LAST:event_ClearBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -426,6 +466,7 @@ public class LoginRegPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ClearBtn;
     private javax.swing.JLabel ConfirmPasswordLb;
     private javax.swing.JLabel Email;
     private javax.swing.JLabel EmailLb;
