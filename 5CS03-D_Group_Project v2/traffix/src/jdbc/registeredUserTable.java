@@ -21,11 +21,11 @@ public class registeredUserTable {
 
     public static void main(String[] args) {
         showAll();
-        insert("Jeff", "No", "Joe", "Smith", "adasdb@gmail.com", "123456"); // test your new method
+        insert("insertName", "No", "Joe", "Smith", "adasdb@gmail.com", "123456"); // test your new method
         showAll();
     }
 
-    public static void insert(String username, String adminFlag, String firstName, String lastName, String email, String password) {
+    public static void insert(String username,String adminFlag,String firstName,String lastName,String email,String password) {
 
         Statement stmt = null;
 
@@ -39,7 +39,9 @@ public class registeredUserTable {
 //                + "'" + email + "'" 
 //                + "'" + password + "'" 
 //            + ")";
-        String sqlString = ("INSERT INTO Users(username,adminFlag,firstName,lastName,email,password) " + "VALUES ('Martin','No','Mar','Ramsey','Mrsey@gmail.com','123456')");
+        
+        //String sqlString = ("INSERT INTO Users(username,adminFlag,firstName,lastName,email,password) " + "VALUES ('Terry1','No','Terry','Ram','Ter1@gmail.com','123456')");
+        String sqlString = ("INSERT OR IGNORE INTO Users(username,adminFlag,firstName,lastName,email,password) " + "VALUES ('George1','No','George','Smith','g1','123')");
         try {
             con.setAutoCommit(false);
             stmt = con.createStatement();

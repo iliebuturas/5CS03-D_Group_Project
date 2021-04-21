@@ -280,9 +280,6 @@
             </Component>
             <Component class="javax.swing.JLabel" name="TitleText">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Dialog" size="12" style="0"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Log in to existing account"/>
               </Properties>
             </Component>
@@ -407,9 +404,6 @@
             </Component>
             <Component class="javax.swing.JLabel" name="SignupText">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Dialog" size="12" style="0"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Register a new account"/>
               </Properties>
             </Component>

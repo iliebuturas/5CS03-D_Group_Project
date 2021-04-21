@@ -359,7 +359,7 @@ public class LoginRegPanel extends javax.swing.JFrame {
         String rfname = rFirstName.getText();
         String rlname = rLastName.getText();
         String rpw = rPassword.getText();
- 
+        String flag = "no";
         String remail = rEmail.getText();
         ResultSet userResultSet = registeredUserTable.get(remail);
         
@@ -369,10 +369,18 @@ public class LoginRegPanel extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(this, "This email is already registered");   
             }
-            else
-            {
-                registeredUserTable.insert(rusername, "no", rfname, rlname, remail, rpw);
-                JOptionPane.showMessageDialog(this, "User registered!");   
+            else{
+                if(rusername.equals("") || remail.equals("")){
+                    JOptionPane.showMessageDialog(this, "Please fill out all fields");
+                    return;
+                }
+                else{
+                    //registeredUserTable.insert(rusername,"no",rfname,rlname,remail,rpw);
+                    registeredUserTable.insert(rUsername.getText(), "no", rFirstName.getText(), rLastName.getText(), rEmail.getText(), rPassword.getText());
+
+                    System.out.println(rusername);
+                    JOptionPane.showMessageDialog(this, "User registered! test1");   
+                }
             }
         } 
         catch (SQLException ex) 
