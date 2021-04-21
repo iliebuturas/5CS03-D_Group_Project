@@ -45,7 +45,7 @@ public class csvData {
                 String[] splitSt = str.split(",");
                 
                 
-//                if (!IdChecker.contains(splitSt[5])) {
+             if (!IdChecker.contains(splitSt[5])) {
                  IdChecker.add(splitSt[5]);
                     int region_id = Integer.parseInt(splitSt[5]);
                     
@@ -62,18 +62,18 @@ public class csvData {
                     stmt.close();
                     con.commit();
 
-                    //} 
-//                else {
-//                    System.out.println("Duplicate record with pk :" + splitSt[5]);
-//                    //IdChecker.add(splitSt[5]);
-//                }
+                    } 
+                else {
+                    System.out.println("Duplicate record with pk :" + splitSt[5]);
+                    //IdChecker.add(splitSt[5]);
+                }
                 
                 //if (!IdChecker.contains(splitSt[7])) {
                     IdChecker.add(splitSt[7]);
                     int local_authority_id = Integer.parseInt(splitSt[7]);
                     String local_authority_name = splitSt[8];
                 //region_id = Integer.parseInt(splitSt[5]); FROM FOREIGN KEY
-                    sqlString = "INSERT or IGNORE INTO Local_Authority (local_authority_id, local_authority_name) VALUES (" + local_authority_id + ",'" + local_authority_name + "');";
+                    String sqlString = "INSERT or IGNORE INTO Local_Authority (local_authority_id, local_authority_name) VALUES (" + local_authority_id + ",'" + local_authority_name + "');";
                     System.out.println("sqlString : "+ sqlString);
                     con.setAutoCommit(false);
                     stmt = con.createStatement();
@@ -106,34 +106,41 @@ public class csvData {
 //                    System.out.println("Duplicate record with pk :" + splitSt[9]);
 //                }
 //                
-//                if (!IdChecker.contains(splitSt[0])) {
-//                    IdChecker.add(splitSt[0]);
-//                    int count_point_id = Integer.parseInt(splitSt[0]);
-//                    String start_junction_road_name = splitSt[11];
-//                    String end_junction_road_name = splitSt[12];
-//                    int easting = Integer.parseInt(splitSt[13]);
-//                    int northing = Integer.parseInt(splitSt[14]);
-//                    String latitude = splitSt[15];
-//                    String longitude = splitSt[16];
-//                    Double d_km = Double.valueOf(splitSt[17]);
-//                    BigDecimal link_length_km = BigDecimal.valueOf(d_km);
-//                    Double d_m = Double.valueOf(splitSt[18]);
-//                    BigDecimal link_length_miles = BigDecimal.valueOf(d_m);
-//                    String road_name = splitSt[9];
-//                    
-//                    String sqlString = "INSERT INTO Count_Point (count_point_id, start_junction_road_name, end_junction_road_name, easting, northing, latitude, longitude, link_length_km, link_length_miles, road_name) VALUES ("+count_point_id+", '" +start_junction_road_name+ "', '"+end_junction_road_name+"',"+easting+", "+northing+", '"+latitude+"', '"+longitude+"', "+link_length_km+", "+link_length_miles+", '"+road_name+"');";
-//                    System.out.println("sqlString : "+ sqlString);
-//                    
-//                    con.setAutoCommit(false);
-//                    stmt = con.createStatement();
-//
-//                    stmt.executeUpdate(sqlString);
-//                    stmt.close();
-//                    con.commit();
-//
-//                } else {
-//                    System.out.println("Duplicate record with pk :" + splitSt[0]);
-//                }
+                if (!IdChecker.contains(splitSt[0])) {
+                    IdChecker.add(splitSt[0]);
+                    int count_point_id = Integer.parseInt(splitSt[0]);
+                    String start_junction_road_name = splitSt[11];
+                    if (splitSt[11].isEmpty()){
+                        splitSt[11] = " ";
+                    }
+                    String end_junction_road_name = splitSt[12];
+                    if (splitSt[12].isEmpty()){
+                        splitSt[12] = " ";
+                    }
+                    int easting = Integer.parseInt(splitSt[13]);
+                    int northing = Integer.parseInt(splitSt[14]);
+                    String latitude = splitSt[15];
+                    String longitude = splitSt[16];
+                    Double d_km = Double.valueOf(splitSt[17]);
+                    BigDecimal link_length_km = BigDecimal.valueOf(d_km);
+                    Double d_m = Double.valueOf(splitSt[18]);
+                    BigDecimal link_length_miles = BigDecimal.valueOf(d_m);
+                    //road_name = splitSt[9];
+                    
+                   
+                    sqlString = "INSERT OR IGNORE INTO Count_Point (count_point_id, start_junction_road_name, end_junction_road_name, easting, northing, latitude, longitude, link_length_km, link_length_miles) VALUES ("+count_point_id+", '" +start_junction_road_name+ "', '"+end_junction_road_name+"',"+easting+", "+northing+", '"+latitude+"', '"+longitude+"', "+link_length_km+", "+link_length_miles+");";
+                    System.out.println("sqlString : "+ sqlString);
+                    
+                    con.setAutoCommit(false);
+                    stmt = con.createStatement();
+
+                    stmt.executeUpdate(sqlString);
+                    stmt.close();
+                    con.commit();
+
+                } else {
+                    System.out.println("Duplicate record with pk :" + splitSt[0]);
+                }
                
             }
         } catch (Exception e) {

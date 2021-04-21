@@ -48,7 +48,6 @@ public class LoginRegPanel extends javax.swing.JFrame {
         LoginBtn = new javax.swing.JButton();
         LoginTitle = new javax.swing.JLabel();
         TitleText = new javax.swing.JLabel();
-        ShowPassword = new javax.swing.JCheckBox();
         password = new javax.swing.JPasswordField();
         SignUpPanel = new javax.swing.JPanel();
         RegisterBtn = new javax.swing.JButton();
@@ -139,13 +138,6 @@ public class LoginRegPanel extends javax.swing.JFrame {
 
         TitleText.setText("Log in to existing account");
 
-        ShowPassword.setText("Show password");
-        ShowPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ShowPasswordActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout LogInPanelLayout = new javax.swing.GroupLayout(LogInPanel);
         LogInPanel.setLayout(LogInPanelLayout);
         LogInPanelLayout.setHorizontalGroup(
@@ -157,7 +149,6 @@ public class LoginRegPanel extends javax.swing.JFrame {
                     .addComponent(Password)
                     .addComponent(TitleText)
                     .addComponent(LoginTitle)
-                    .addComponent(ShowPassword)
                     .addComponent(email, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
                     .addGroup(LogInPanelLayout.createSequentialGroup()
                         .addGap(80, 80, 80)
@@ -180,11 +171,9 @@ public class LoginRegPanel extends javax.swing.JFrame {
                 .addComponent(Password)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(ShowPassword)
-                .addGap(45, 45, 45)
+                .addGap(87, 87, 87)
                 .addComponent(LoginBtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(205, Short.MAX_VALUE))
         );
 
         SignUpPanel.setBackground(new java.awt.Color(255, 226, 40));
@@ -205,6 +194,12 @@ public class LoginRegPanel extends javax.swing.JFrame {
 
         UsernameLb.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         UsernameLb.setText("Username");
+
+        rUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rUsernameActionPerformed(evt);
+            }
+        });
 
         FirstNamelb.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         FirstNamelb.setText("First name");
@@ -416,9 +411,20 @@ public class LoginRegPanel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailActionPerformed
 
-    private void ShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowPasswordActionPerformed
+
+    private void KeepSignedInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeepSignedInActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ShowPasswordActionPerformed
+    }//GEN-LAST:event_KeepSignedInActionPerformed
+
+    private void TermsCondActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TermsCondActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TermsCondActionPerformed
+
+    private void rUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rUsernameActionPerformed
+
+
 
     private void ClearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearBtnActionPerformed
 
@@ -481,7 +487,6 @@ public class LoginRegPanel extends javax.swing.JFrame {
     private javax.swing.JLabel Password;
     private javax.swing.JLabel PasswordLb;
     private javax.swing.JButton RegisterBtn;
-    private javax.swing.JCheckBox ShowPassword;
     private javax.swing.JPanel SignUpPanel;
     private javax.swing.JLabel SignupText;
     private javax.swing.JLabel SignupTitle;
