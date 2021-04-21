@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
  *
  * @author Vasilis
@@ -342,19 +341,16 @@ public class LoginRegPanel extends javax.swing.JFrame {
         String flag = "no";
         String remail = rEmail.getText();
         ResultSet userResultSet = registeredUserTable.get(remail);
-        
+
         //registeredUserTable.insert("Al", "no", "al@gmail.com", "Alfred", "Smith", "123241");
         try {
-            if(userResultSet.next())
-            {
-                JOptionPane.showMessageDialog(this, "This email is already registered");   
-            }
-            else{
-                if(rusername.equals("") || remail.equals("")){
+            if (userResultSet.next()) {
+                JOptionPane.showMessageDialog(this, "This email is already registered");
+            } else {
+                if (rusername.equals("") || remail.equals("")) {
                     JOptionPane.showMessageDialog(this, "Please fill out all fields");
                     return;
-                }
-                else{
+                } else {
                     //registeredUserTable.insert(rusername,"no",rfname,rlname,remail,rpw);
                     registeredUserTable.insert(rUsername.getText(), "no", rFirstName.getText(), rLastName.getText(), rEmail.getText(), rPassword.getText());
 
@@ -362,25 +358,21 @@ public class LoginRegPanel extends javax.swing.JFrame {
                     //JOptionPane.showMessageDialog(this, "User registered! test1");   
                 }
             }
-        } 
-        catch (SQLException ex) 
-        {
+        } catch (SQLException ex) {
             System.out.println("Error: " + ex.getMessage());
         }
-        
+
         String pwd1 = rPassword.getText();
         String pwd2 = jPasswordField2.getText();
-        
-        if(!pwd1.equals(pwd2))
-        {
+
+        if (!pwd1.equals(pwd2)) {
             JOptionPane.showMessageDialog(this, "Passwords do not match!");
             return;
         }
-        
-        if(rusername.equals("") || rFirstName.equals("") || rLastName.equals("") || rEmail.equals("") || pwd1.equals("") || pwd2.equals(""))
-        {
+
+        if (rusername.equals("") || rFirstName.equals("") || rLastName.equals("") || rEmail.equals("") || pwd1.equals("") || pwd2.equals("")) {
             JOptionPane.showMessageDialog(this, "Please fill out all fields!");
-                    return;
+            return;
         }
     }//GEN-LAST:event_RegisterBtnActionPerformed
 
@@ -388,23 +380,34 @@ public class LoginRegPanel extends javax.swing.JFrame {
         String uemail = email.getText();
         String upassword = password.getText();
 
-        if(uemail.equals("") || upassword.equals(""))
-        {
+        if (uemail.equals("") || upassword.equals("")) {
             JOptionPane.showMessageDialog(this, "Please fill out all fields");
             return;
         }
 
         String emailRegex = "^(.+)@(.+)$";
-        if(!uemail.matches(emailRegex))
-        {
+        if (!uemail.matches(emailRegex)) {
             JOptionPane.showMessageDialog(this, "Email not in valid format");
             return;
         }
+
+  // Check in users query
+        String check = "SELECT email"
+                + "FROM Users "
+                + "WHERE email LIKE '" + uemail + "'";
+
+//        if (uemail == check) {
+//            System.out.println("Welcome to account tab " + uemail + " " + rFirstName);
+        
 
         AccountScreen gui2 = new AccountScreen(uemail, upassword);
         gui2.setVisible(true);
         this.setVisible(false);
         this.dispose();
+//        }
+//        else{
+//            System.out.println("Account not registered");
+//        }
     }//GEN-LAST:event_LoginBtnActionPerformed
 
     private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
@@ -423,7 +426,6 @@ public class LoginRegPanel extends javax.swing.JFrame {
     private void rUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rUsernameActionPerformed
-
 
 
     private void ClearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearBtnActionPerformed

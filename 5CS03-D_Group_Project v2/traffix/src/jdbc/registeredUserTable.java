@@ -26,21 +26,9 @@ public class registeredUserTable {
     }
 
     public static void insert(String username,String adminFlag,String firstName,String lastName,String email,String password) {
-
+        Connection con = connectUsersDB.getConnection();
         Statement stmt = null;
-
-//        String sqlString = "INSERT INTO Users (username,adminFlag,firstName,lastName,email,password) VALUES" 
-//        
-//            + "(" 
-//                + "'" + username + "'" 
-//                + "'" + adminFlag + "'" 
-//                + "'" + firstName + "'" 
-//                + "'" + lastName + "'" 
-//                + "'" + email + "'" 
-//                + "'" + password + "'" 
-//            + ")";
-       // "INSERT OR IGNORE INTO Road (road_name, road_type) VALUES ('" + road_name + "','" + road_type + "');";
-        //String sqlString = ("INSERT INTO Users(username,adminFlag,firstName,lastName,email,password) " + "VALUES ('Terry1','No','Terry','Ram','Ter1@gmail.com','123456')");
+        
         String sqlString = ("INSERT OR IGNORE INTO Users(username,adminFlag,firstName,lastName,email,password) "
                 + "VALUES ('" + username + "','" + adminFlag + "','" + firstName + "','" + lastName + "','" + email + "','" + password + "' );");
         
