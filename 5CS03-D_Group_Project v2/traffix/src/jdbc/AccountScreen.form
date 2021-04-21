@@ -210,19 +210,15 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="userEmail" min="-2" max="-2" attributes="0"/>
-                                      <Component id="username" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="email" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="usernameContent" min="-2" max="-2" attributes="0"/>
+                                          <Component id="emailContent" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="emailContent" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="72" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="0" pref="124" max="32767" attributes="0"/>
                                           <Component id="back" min="-2" pref="77" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -239,15 +235,11 @@
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="username" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="usernameContent" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="email" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="emailContent" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="userEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="emailContent" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="back" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="back" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="31" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -262,7 +254,7 @@
                     <Property name="text" type="java.lang.String" value="Welcome to the main page"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="username">
+                <Component class="javax.swing.JLabel" name="email">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Century Gothic" size="14" style="1"/>
@@ -270,28 +262,12 @@
                     <Property name="text" type="java.lang.String" value="You are logged in as:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="usernameContent">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Century Gothic" size="14" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="jLabel3"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="userEmail">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Century Gothic" size="14" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Email"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JLabel" name="emailContent">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Century Gothic" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="jLabel4"/>
+                    <Property name="text" type="java.lang.String" value="jLabel3"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="back">

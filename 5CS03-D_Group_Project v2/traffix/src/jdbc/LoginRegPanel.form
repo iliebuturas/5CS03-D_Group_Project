@@ -179,22 +179,17 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="42" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="LoginBtn" min="-2" pref="77" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="ForgotPassword" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="Username" min="-2" max="-2" attributes="0"/>
-                          <Component id="UserEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="Email" min="-2" max="-2" attributes="0"/>
+                          <Component id="Password" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="TitleText" min="-2" max="-2" attributes="0"/>
                           <Component id="LoginTitle" min="-2" max="-2" attributes="0"/>
+                          <Component id="ShowPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="email" alignment="0" pref="259" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="ShowPassword" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="KeepSignedIn" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="LoginBtn" min="-2" pref="77" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="uemail" alignment="0" max="32767" attributes="0"/>
-                          <Component id="uname" alignment="0" max="32767" attributes="0"/>
+                          <Component id="password" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
@@ -208,51 +203,43 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="TitleText" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="Username" min="-2" max="-2" attributes="0"/>
+                      <Component id="Email" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                      <Component id="uname" min="-2" max="-2" attributes="0"/>
+                      <Component id="email" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="UserEmail" min="-2" max="-2" attributes="0"/>
+                      <Component id="Password" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="uemail" min="-2" max="-2" attributes="0"/>
+                      <Component id="password" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ShowPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="KeepSignedIn" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="LoginBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ForgotPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="ShowPassword" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="LoginBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="Username">
+            <Component class="javax.swing.JLabel" name="Email">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Username"/>
+                <Property name="text" type="java.lang.String" value="Email"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="uname">
+            <Component class="javax.swing.JTextField" name="email">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="unameActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emailActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="UserEmail">
+            <Component class="javax.swing.JLabel" name="Password">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Email"/>
+                <Property name="text" type="java.lang.String" value="Password"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="uemail">
             </Component>
             <Component class="javax.swing.JButton" name="LoginBtn">
               <Properties>
@@ -273,11 +260,6 @@
                 <Property name="text" type="java.lang.String" value="Log in"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="ForgotPassword">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Forgot password?"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="TitleText">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Log in to existing account"/>
@@ -291,13 +273,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ShowPasswordActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="KeepSignedIn">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Keep signed in"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="KeepSignedInActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JPasswordField" name="password">
             </Component>
           </SubComponents>
         </Container>
@@ -322,9 +298,8 @@
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="PasswordLb" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="rPassword" alignment="0" max="32767" attributes="0"/>
                           <Component id="EmailLb" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="rEmail" alignment="0" max="32767" attributes="0"/>
+                          <Component id="rEmail" alignment="0" pref="220" max="32767" attributes="0"/>
                           <Component id="LastNameLb" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="rLastName" alignment="0" max="32767" attributes="0"/>
                           <Component id="FirstNamelb" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -334,9 +309,12 @@
                           <Component id="SignupTitle" min="-2" max="-2" attributes="0"/>
                           <Component id="rUsername" alignment="0" max="32767" attributes="0"/>
                           <Component id="ConfirmPasswordLb" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="rConfirmPassword" alignment="0" max="32767" attributes="0"/>
-                          <Component id="RegisterBtn" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="TermsCond" alignment="0" pref="220" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="RegisterBtn" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="rPassword" max="32767" attributes="0"/>
+                          <Component id="jPasswordField2" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="104" max="32767" attributes="0"/>
                   </Group>
@@ -371,13 +349,11 @@
                       <Component id="rPassword" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="ConfirmPasswordLb" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="rConfirmPassword" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <Component id="jPasswordField2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="TermsCond" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="21" max="32767" attributes="0"/>
                       <Component id="RegisterBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace pref="41" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -455,8 +431,6 @@
                 <Property name="text" type="java.lang.String" value="Password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="rPassword">
-            </Component>
             <Component class="javax.swing.JLabel" name="ConfirmPasswordLb">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -465,15 +439,9 @@
                 <Property name="text" type="java.lang.String" value="Confirm password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="rConfirmPassword">
+            <Component class="javax.swing.JPasswordField" name="rPassword">
             </Component>
-            <Component class="javax.swing.JCheckBox" name="TermsCond">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="I agree with terms and conditions"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TermsCondActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JPasswordField" name="jPasswordField2">
             </Component>
           </SubComponents>
         </Container>

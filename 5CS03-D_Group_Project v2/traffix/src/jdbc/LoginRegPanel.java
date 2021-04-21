@@ -42,16 +42,14 @@ public class LoginRegPanel extends javax.swing.JFrame {
         LogoText = new javax.swing.JLabel();
         Logo = new javax.swing.JLabel();
         LogInPanel = new javax.swing.JPanel();
-        Username = new javax.swing.JLabel();
-        uname = new javax.swing.JTextField();
-        UserEmail = new javax.swing.JLabel();
-        uemail = new javax.swing.JTextField();
+        Email = new javax.swing.JLabel();
+        email = new javax.swing.JTextField();
+        Password = new javax.swing.JLabel();
         LoginBtn = new javax.swing.JButton();
         LoginTitle = new javax.swing.JLabel();
-        ForgotPassword = new javax.swing.JLabel();
         TitleText = new javax.swing.JLabel();
         ShowPassword = new javax.swing.JCheckBox();
-        KeepSignedIn = new javax.swing.JCheckBox();
+        password = new javax.swing.JPasswordField();
         SignUpPanel = new javax.swing.JPanel();
         RegisterBtn = new javax.swing.JButton();
         SignupTitle = new javax.swing.JLabel();
@@ -65,10 +63,9 @@ public class LoginRegPanel extends javax.swing.JFrame {
         EmailLb = new javax.swing.JLabel();
         rEmail = new javax.swing.JTextField();
         PasswordLb = new javax.swing.JLabel();
-        rPassword = new javax.swing.JTextField();
         ConfirmPasswordLb = new javax.swing.JLabel();
-        rConfirmPassword = new javax.swing.JTextField();
-        TermsCond = new javax.swing.JCheckBox();
+        rPassword = new javax.swing.JPasswordField();
+        jPasswordField2 = new javax.swing.JPasswordField();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -116,17 +113,17 @@ public class LoginRegPanel extends javax.swing.JFrame {
         LogInPanel.setBackground(new java.awt.Color(255, 226, 40));
         LogInPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.darkGray, null, null));
 
-        Username.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        Username.setText("Username");
+        Email.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Email.setText("Email");
 
-        uname.addActionListener(new java.awt.event.ActionListener() {
+        email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                unameActionPerformed(evt);
+                emailActionPerformed(evt);
             }
         });
 
-        UserEmail.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        UserEmail.setText("Email");
+        Password.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        Password.setText("Password");
 
         LoginBtn.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         LoginBtn.setText("Login");
@@ -139,22 +136,12 @@ public class LoginRegPanel extends javax.swing.JFrame {
         LoginTitle.setFont(new java.awt.Font("Century Gothic", 1, 39)); // NOI18N
         LoginTitle.setText("Log in");
 
-        ForgotPassword.setText("Forgot password?");
-
-        TitleText.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         TitleText.setText("Log in to existing account");
 
         ShowPassword.setText("Show password");
         ShowPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ShowPasswordActionPerformed(evt);
-            }
-        });
-
-        KeepSignedIn.setText("Keep signed in");
-        KeepSignedIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KeepSignedInActionPerformed(evt);
             }
         });
 
@@ -165,20 +152,16 @@ public class LoginRegPanel extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogInPanelLayout.createSequentialGroup()
                 .addContainerGap(42, Short.MAX_VALUE)
                 .addGroup(LogInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(LogInPanelLayout.createSequentialGroup()
-                        .addComponent(LoginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ForgotPassword))
-                    .addComponent(Username)
-                    .addComponent(UserEmail)
+                    .addComponent(Email)
+                    .addComponent(Password)
                     .addComponent(TitleText)
                     .addComponent(LoginTitle)
+                    .addComponent(ShowPassword)
+                    .addComponent(email, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
                     .addGroup(LogInPanelLayout.createSequentialGroup()
-                        .addComponent(ShowPassword)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(KeepSignedIn))
-                    .addComponent(uemail)
-                    .addComponent(uname))
+                        .addGap(80, 80, 80)
+                        .addComponent(LoginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(password))
                 .addGap(24, 24, 24))
         );
         LogInPanelLayout.setVerticalGroup(
@@ -189,21 +172,17 @@ public class LoginRegPanel extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TitleText)
                 .addGap(40, 40, 40)
-                .addComponent(Username)
+                .addComponent(Email)
                 .addGap(4, 4, 4)
-                .addComponent(uname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(UserEmail)
+                .addComponent(Password)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(uemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(LogInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ShowPassword)
-                    .addComponent(KeepSignedIn))
-                .addGap(24, 24, 24)
-                .addGroup(LogInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LoginBtn)
-                    .addComponent(ForgotPassword))
+                .addComponent(ShowPassword)
+                .addGap(45, 45, 45)
+                .addComponent(LoginBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -221,7 +200,6 @@ public class LoginRegPanel extends javax.swing.JFrame {
         SignupTitle.setFont(new java.awt.Font("Century Gothic", 1, 39)); // NOI18N
         SignupTitle.setText("Sign Up");
 
-        SignupText.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         SignupText.setText("Register a new account");
 
         UsernameLb.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -242,13 +220,6 @@ public class LoginRegPanel extends javax.swing.JFrame {
         ConfirmPasswordLb.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         ConfirmPasswordLb.setText("Confirm password");
 
-        TermsCond.setText("I agree with terms and conditions");
-        TermsCond.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TermsCondActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout SignUpPanelLayout = new javax.swing.GroupLayout(SignUpPanel);
         SignUpPanel.setLayout(SignUpPanelLayout);
         SignUpPanelLayout.setHorizontalGroup(
@@ -257,9 +228,8 @@ public class LoginRegPanel extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(PasswordLb)
-                    .addComponent(rPassword)
                     .addComponent(EmailLb)
-                    .addComponent(rEmail)
+                    .addComponent(rEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                     .addComponent(LastNameLb)
                     .addComponent(rLastName)
                     .addComponent(FirstNamelb)
@@ -269,9 +239,11 @@ public class LoginRegPanel extends javax.swing.JFrame {
                     .addComponent(SignupTitle)
                     .addComponent(rUsername)
                     .addComponent(ConfirmPasswordLb)
-                    .addComponent(rConfirmPassword)
-                    .addComponent(RegisterBtn)
-                    .addComponent(TermsCond, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SignUpPanelLayout.createSequentialGroup()
+                        .addComponent(RegisterBtn)
+                        .addGap(54, 54, 54))
+                    .addComponent(rPassword)
+                    .addComponent(jPasswordField2))
                 .addContainerGap(104, Short.MAX_VALUE))
         );
         SignUpPanelLayout.setVerticalGroup(
@@ -303,13 +275,11 @@ public class LoginRegPanel extends javax.swing.JFrame {
                 .addComponent(rPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ConfirmPasswordLb)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(TermsCond)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(RegisterBtn)
-                .addContainerGap())
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
@@ -390,43 +360,35 @@ public class LoginRegPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterBtnActionPerformed
 
     private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
-        String username = uname.getText();
-        String email = uemail.getText();
+        String uemail = email.getText();
+        String upassword = password.getText();
 
-        if(username.equals("") || email.equals(""))
+        if(uemail.equals("") || upassword.equals(""))
         {
             JOptionPane.showMessageDialog(this, "Please fill out all fields");
             return;
         }
 
         String emailRegex = "^(.+)@(.+)$";
-        if(!email.matches(emailRegex))
+        if(!uemail.matches(emailRegex))
         {
             JOptionPane.showMessageDialog(this, "Email not in valid format");
             return;
         }
 
-        AccountScreen gui2 = new AccountScreen(username, email);
+        AccountScreen gui2 = new AccountScreen(uemail, upassword);
         gui2.setVisible(true);
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_LoginBtnActionPerformed
 
-    private void unameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unameActionPerformed
+    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_unameActionPerformed
+    }//GEN-LAST:event_emailActionPerformed
 
     private void ShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ShowPasswordActionPerformed
-
-    private void KeepSignedInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeepSignedInActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_KeepSignedInActionPerformed
-
-    private void TermsCondActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TermsCondActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TermsCondActionPerformed
 
     /**
      * @param args the command line arguments
@@ -465,10 +427,9 @@ public class LoginRegPanel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ConfirmPasswordLb;
+    private javax.swing.JLabel Email;
     private javax.swing.JLabel EmailLb;
     private javax.swing.JLabel FirstNamelb;
-    private javax.swing.JLabel ForgotPassword;
-    private javax.swing.JCheckBox KeepSignedIn;
     private javax.swing.JLabel LastNameLb;
     private javax.swing.JPanel LogInPanel;
     private javax.swing.JButton LoginBtn;
@@ -476,27 +437,25 @@ public class LoginRegPanel extends javax.swing.JFrame {
     private javax.swing.JLabel Logo;
     private javax.swing.JPanel LogoPanel;
     private javax.swing.JLabel LogoText;
+    private javax.swing.JLabel Password;
     private javax.swing.JLabel PasswordLb;
     private javax.swing.JButton RegisterBtn;
     private javax.swing.JCheckBox ShowPassword;
     private javax.swing.JPanel SignUpPanel;
     private javax.swing.JLabel SignupText;
     private javax.swing.JLabel SignupTitle;
-    private javax.swing.JCheckBox TermsCond;
     private javax.swing.JLabel TitleText;
     private javax.swing.JPanel TopPanel;
-    private javax.swing.JLabel UserEmail;
-    private javax.swing.JLabel Username;
     private javax.swing.JLabel UsernameLb;
+    private javax.swing.JTextField email;
+    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField rConfirmPassword;
+    private javax.swing.JPasswordField password;
     private javax.swing.JTextField rEmail;
     private javax.swing.JTextField rFirstName;
     private javax.swing.JTextField rLastName;
-    private javax.swing.JTextField rPassword;
+    private javax.swing.JPasswordField rPassword;
     private javax.swing.JTextField rUsername;
-    private javax.swing.JTextField uemail;
-    private javax.swing.JTextField uname;
     // End of variables declaration//GEN-END:variables
 }
