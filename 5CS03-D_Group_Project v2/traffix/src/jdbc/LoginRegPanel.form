@@ -416,6 +416,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="rUsername">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rUsernameActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="FirstNamelb">
               <Properties>

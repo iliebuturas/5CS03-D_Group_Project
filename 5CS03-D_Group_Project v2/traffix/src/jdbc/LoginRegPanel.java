@@ -141,7 +141,6 @@ public class LoginRegPanel extends javax.swing.JFrame {
 
         ForgotPassword.setText("Forgot password?");
 
-        TitleText.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         TitleText.setText("Log in to existing account");
 
         ShowPassword.setText("Show password");
@@ -221,11 +220,16 @@ public class LoginRegPanel extends javax.swing.JFrame {
         SignupTitle.setFont(new java.awt.Font("Century Gothic", 1, 39)); // NOI18N
         SignupTitle.setText("Sign Up");
 
-        SignupText.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         SignupText.setText("Register a new account");
 
         UsernameLb.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         UsernameLb.setText("Username");
+
+        rUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rUsernameActionPerformed(evt);
+            }
+        });
 
         FirstNamelb.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         FirstNamelb.setText("First name");
@@ -427,6 +431,10 @@ public class LoginRegPanel extends javax.swing.JFrame {
     private void TermsCondActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TermsCondActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TermsCondActionPerformed
+
+    private void rUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rUsernameActionPerformed
 
     /**
      * @param args the command line arguments
