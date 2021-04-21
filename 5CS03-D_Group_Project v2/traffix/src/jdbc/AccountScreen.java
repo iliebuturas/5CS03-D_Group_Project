@@ -18,13 +18,11 @@ public class AccountScreen extends javax.swing.JFrame {
         initComponents();
     }
     
-    public AccountScreen(String username, String email)
+    public AccountScreen(String email, String passsword)
     {
         initComponents();
-        usernameContent.setText(username);
         emailContent.setText(email);
      
-        System.out.println("Username: " + username);
         System.out.println("Email: " + email);
     }
     /**
@@ -43,9 +41,7 @@ public class AccountScreen extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        username = new javax.swing.JLabel();
-        usernameContent = new javax.swing.JLabel();
-        userEmail = new javax.swing.JLabel();
+        email = new javax.swing.JLabel();
         emailContent = new javax.swing.JLabel();
         back = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
@@ -98,17 +94,11 @@ public class AccountScreen extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel1.setText("Welcome to the main page");
 
-        username.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        username.setText("You are logged in as:");
-
-        usernameContent.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        usernameContent.setText("jLabel3");
-
-        userEmail.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        userEmail.setText("Email");
+        email.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        email.setText("You are logged in as:");
 
         emailContent.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        emailContent.setText("jLabel4");
+        emailContent.setText("jLabel3");
 
         back.setText("Logout");
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -126,17 +116,14 @@ public class AccountScreen extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(userEmail)
-                            .addComponent(username))
+                        .addComponent(email)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(usernameContent)
+                                .addComponent(emailContent)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(emailContent)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                                .addGap(0, 124, Short.MAX_VALUE)
                                 .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
@@ -147,13 +134,10 @@ public class AccountScreen extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(username)
-                    .addComponent(usernameContent))
+                    .addComponent(email)
+                    .addComponent(emailContent))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userEmail)
-                    .addComponent(emailContent)
-                    .addComponent(back))
+                .addComponent(back)
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -287,6 +271,7 @@ public class AccountScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back;
+    private javax.swing.JLabel email;
     private javax.swing.JLabel emailContent;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -298,8 +283,5 @@ public class AccountScreen extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JLabel userEmail;
-    private javax.swing.JLabel username;
-    private javax.swing.JLabel usernameContent;
     // End of variables declaration//GEN-END:variables
 }
