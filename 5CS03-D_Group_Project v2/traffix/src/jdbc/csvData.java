@@ -106,20 +106,37 @@ else {
                     System.out.println("Duplicate record with pk :" + splitSt[9]);
                 }
                 
+//                if (!IdChecker.contains(splitSt[0])) {
+//                    IdChecker.add(splitSt[0]);
+//                    int count_point_id = Integer.parseInt(splitSt[0]);
+//                    String start_junction_road_name = splitSt[11];
+//                    String end_junction_road_name = splitSt[12];                
+//                    int easting = Integer.parseInt(splitSt[13]);
+//                    int northing = Integer.parseInt(splitSt[14]);
+//                    String latitude = splitSt[15];
+//                    String longitude = splitSt[16];
+//                    Double d_km = Double.valueOf(splitSt[17]);
+//                    BigDecimal link_length_km = BigDecimal.valueOf(d_km);
+//                    Double d_m = Double.valueOf(splitSt[18]);
+//                    BigDecimal link_length_miles = BigDecimal.valueOf(d_m);
+//                    //road_name = splitSt[9];
+                    
                 if (!IdChecker.contains(splitSt[0])) {
                     IdChecker.add(splitSt[0]);
                     int count_point_id = Integer.parseInt(splitSt[0]);
-                    String start_junction_road_name = splitSt[11];
-                    String end_junction_road_name = splitSt[12];                
-                    int easting = Integer.parseInt(splitSt[13]);
-                    int northing = Integer.parseInt(splitSt[14]);
-                    String latitude = splitSt[15];
-                    String longitude = splitSt[16];
-                    Double d_km = Double.valueOf(splitSt[17]);
-                    BigDecimal link_length_km = BigDecimal.valueOf(d_km);
-                    Double d_m = Double.valueOf(splitSt[18]);
-                    BigDecimal link_length_miles = BigDecimal.valueOf(d_m);
-                    //road_name = splitSt[9];
+                    String start_junction_road_name = splitSt[13];
+                    String end_junction_road_name = splitSt[14];                
+                    int easting = Integer.parseInt(splitSt[15]);
+                    int northing = Integer.parseInt(splitSt[16]);
+                    float latitude = Float.parseFloat(splitSt[17]);
+                    float longitude = Float.parseFloat(splitSt[18]);
+                    Double link_length_km = Double.parseDouble(splitSt[19]);
+                    Double link_length_miles = Double.parseDouble(splitSt[20]);
+//                    Double d_km = Double.valueOf(splitSt[19]);
+//                    BigDecimal link_length_km = BigDecimal.valueOf(d_km);
+//                    Double d_m = Double.valueOf(splitSt[20]);
+//                    BigDecimal link_length_miles = BigDecimal.valueOf(d_m);
+                   // String road_name = splitSt[9];
                     
                    
                     String sqlString = "INSERT OR IGNORE INTO Count_Point (count_point_id, start_junction_road_name, end_junction_road_name, easting, northing, latitude, longitude, link_length_km, link_length_miles)"
@@ -140,7 +157,9 @@ else {
                
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
+                        System.out.println("Error reading to database" );
+
         }
     }
 }
