@@ -99,7 +99,7 @@
         <Container class="javax.swing.JPanel" name="LogoPanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="b" green="db" red="ff" type="rgb"/>
+              <Color blue="28" green="e2" red="ff" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
@@ -183,7 +183,6 @@
                           <Component id="Password" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="TitleText" min="-2" max="-2" attributes="0"/>
                           <Component id="LoginTitle" min="-2" max="-2" attributes="0"/>
-                          <Component id="ShowPassword" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="email" alignment="0" pref="259" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
@@ -210,9 +209,7 @@
                       <Component id="Password" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="password" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="ShowPassword" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                       <Component id="LoginBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -264,14 +261,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Log in to existing account"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="ShowPassword">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Show password"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ShowPasswordActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="password">
             </Component>

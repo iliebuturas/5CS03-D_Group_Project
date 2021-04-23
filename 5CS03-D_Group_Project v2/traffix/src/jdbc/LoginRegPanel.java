@@ -76,7 +76,7 @@ public class LoginRegPanel extends javax.swing.JFrame {
         TopPanel.setBackground(new java.awt.Color(255, 219, 11));
         TopPanel.setForeground(new java.awt.Color(255, 219, 187));
 
-        LogoPanel.setBackground(new java.awt.Color(255, 219, 11));
+        LogoPanel.setBackground(new java.awt.Color(255, 226, 40));
         LogoPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.darkGray, null, null));
 
         LogoText.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -172,7 +172,7 @@ public class LoginRegPanel extends javax.swing.JFrame {
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(87, 87, 87)
                 .addComponent(LoginBtn)
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         SignUpPanel.setBackground(new java.awt.Color(255, 226, 40));
