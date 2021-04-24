@@ -363,7 +363,7 @@ public class LoginRegPanel extends javax.swing.JFrame {
                 String dbusername = rs.getString("username");
 
                 System.out.println("row data :" + dbusername);
-                if (rusername.equals("") || rfname.equals("") || rlname.equals("") || remail.equals("") || pwd1.equals("") || pwd2.equals("")) {
+                if (rusername.equals("") || rusername == " " || rfname.equals("") || rlname.equals("") || remail.equals("") || pwd1.equals("") || pwd2.equals("")) {
                     JOptionPane.showMessageDialog(this, "Please fill out all fields!");
                 } else if (dbusername.equals(rusername)) {
                     JOptionPane.showMessageDialog(this, "This username is already registered!");
@@ -373,19 +373,19 @@ public class LoginRegPanel extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Email not in valid format!");
                 } else if (!pwd1.equals(pwd2)) {
                     JOptionPane.showMessageDialog(this, "Passwords do not match!");
-                } 
-            }else {
-                    registeredUserTable.insert(rusername, flag, rfname, rlname, remail, pwd1);
-
-                    JOptionPane.showMessageDialog(this, "You have been registered successfully.");
-
-                    rUsername.setText("");
-                    rFirstName.setText("");
-                    rLastName.setText("");
-                    rEmail.setText("");
-                    rPassword.setText("");
-                    jPasswordField2.setText("");
                 }
+            } else {
+                registeredUserTable.insert(rusername, flag, rfname, rlname, remail, pwd1);
+
+                JOptionPane.showMessageDialog(this, "You have been registered successfully.");
+
+                rUsername.setText("");
+                rFirstName.setText("");
+                rLastName.setText("");
+                rEmail.setText("");
+                rPassword.setText("");
+                jPasswordField2.setText("");
+            }
         } catch (SQLException ex) {
             System.out.println("Error: " + ex.getMessage());
         }
@@ -428,8 +428,14 @@ public class LoginRegPanel extends javax.swing.JFrame {
                 System.out.println("row data :" + dbemail);
 
                 if (dbemail.equals(uemail)) {
-                    JOptionPane.showMessageDialog(this, "Logged in");
-
+                    JOptionPane.showMessageDialog(this, "Successfully logged in");
+                    AccountScreen gui2 = new AccountScreen(uemail, upassword);
+                    gui2.setVisible(true);
+                    this.setVisible(false);
+                    this.dispose();
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Wrong login details");
                 }
             }
         } catch (SQLException ex) {
@@ -438,10 +444,6 @@ public class LoginRegPanel extends javax.swing.JFrame {
 
 //        if (uemail == check) {
 //            System.out.println("Welcome to account tab " + uemail + " " + rFirstName);
-        AccountScreen gui2 = new AccountScreen(uemail, upassword);
-        gui2.setVisible(true);
-        this.setVisible(false);
-        this.dispose();
 //        }
 //        else{
 //            System.out.println("Account not registered");

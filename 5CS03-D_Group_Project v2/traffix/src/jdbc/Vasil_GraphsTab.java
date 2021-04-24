@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author glukka
+ * @author Vasil
  */
 public class Vasil_GraphsTab extends javax.swing.JFrame {
 
