@@ -388,6 +388,21 @@ public class LoginRegPanel extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
             System.out.println("Error: " + ex.getMessage());
+        }finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
         }
 
 
@@ -434,12 +449,27 @@ public class LoginRegPanel extends javax.swing.JFrame {
                     this.setVisible(false);
                     this.dispose();
                 }
-                else{
+                
+            }else{
                     JOptionPane.showMessageDialog(this, "Wrong login details");
                 }
-            }
         } catch (SQLException ex) {
             System.out.println("Error: " + ex.getMessage());
+        }finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
         }
 
 //        if (uemail == check) {
