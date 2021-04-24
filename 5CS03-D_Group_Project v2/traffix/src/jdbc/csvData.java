@@ -139,7 +139,7 @@ else {
                    // String road_name = splitSt[9];
                     
                    
-                    String sqlString = "INSERT OR IGNORE INTO Count_Point (count_point_id, start_junction_road_name, end_junction_road_name, easting, northing, latitude, longitude, link_length_km, link_length_miles)"
+                    String sqlString = "INSERT INTO Count_Point (count_point_id, start_junction_road_name, end_junction_road_name, easting, northing, latitude, longitude, link_length_km, link_length_miles)"
                                                         + "VALUES ('" + count_point_id + "','" + start_junction_road_name + "','" + end_junction_road_name + "','" + easting + "','" + northing + "','" + latitude + "','" + longitude + "','" + link_length_km + "','" + link_length_miles + "');";
                    
                     System.out.println("sqlString : " + sqlString);
@@ -154,6 +154,28 @@ else {
                 } else {
                     System.out.println("Duplicate record on count with pk :" + splitSt[0]);
                 }
+                
+                
+//                if (!IdChecker.contains(splitSt[9])) {
+//                    IdChecker.add(splitSt[9]);
+//                    String road_name = splitSt[9];
+//                    String road_type = splitSt[10];
+//                //int local_authority_id = Integer.parseInt(splitSt[7]);
+//                    
+//                String sqlString = "INSERT OR IGNORE INTO Count (count_id, direction_of_travel, count_date, year, hour, pedal_cycles, two_wheeled_motor_vehicles, cars_and_taxis, buses_and_coaches, lgvs, hgvs_2_rigid_axle, hgvs_3_rigid_axle, hgvs_4_or_more_rigid_axle, hgvs_3_or_4_articulated_axle, hgvs_5_articulated_axle, hgvs_6_articulated_axle, all_hgvs, all_motor_vehicles) VALUES ('" + road_name + "','" + road_type + "');";
+//                    System.out.println("sqlString : "+ sqlString);
+//                    con.setAutoCommit(false);
+//                    stmt = con.createStatement();
+//
+//                    stmt.executeUpdate(sqlString);
+//                    stmt.close();
+//                    con.commit();
+//
+//                } 
+//            else {
+//                    System.out.println("Duplicate record with pk :" + splitSt[9]);
+//                }
+//                
                
             }
         } catch (Exception e) {
