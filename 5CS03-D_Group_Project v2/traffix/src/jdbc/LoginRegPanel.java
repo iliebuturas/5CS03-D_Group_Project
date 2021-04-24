@@ -375,7 +375,8 @@ public class LoginRegPanel extends javax.swing.JFrame {
                 } else if (!pwd1.equals(pwd2)) {
                     JOptionPane.showMessageDialog(this, "Passwords do not match!");
                 } 
-            }else {
+            }
+            else {
                     registeredUserTable.insert(rusername, flag, rfname, rlname, remail, pwd1);
 
                     JOptionPane.showMessageDialog(this, "You have been registered successfully.");
@@ -390,24 +391,6 @@ public class LoginRegPanel extends javax.swing.JFrame {
 
         } catch (SQLException ex) {
             System.out.println("Error: " + ex.getMessage());
-        }finally {
-
-            try {
-                rs.close();
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-            try {
-                stmt.close();
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-            try {
-                con.close();
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-
         }
 
 
