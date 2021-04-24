@@ -374,21 +374,19 @@ public class LoginRegPanel extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Please fill out all fields!");
                 } else if (!pwd1.equals(pwd2)) {
                     JOptionPane.showMessageDialog(this, "Passwords do not match!");
-                } 
-            }
-            else {
-                    registeredUserTable.insert(rusername, flag, rfname, rlname, remail, pwd1);
-
-                    JOptionPane.showMessageDialog(this, "You have been registered successfully.");
-
-                    rUsername.setText("");
-                    rFirstName.setText("");
-                    rLastName.setText("");
-                    rEmail.setText("");
-                    rPassword.setText("");
-                    jPasswordField2.setText("");
                 }
+            } else {
+                registeredUserTable.insert(rusername, flag, rfname, rlname, remail, pwd1);
 
+                JOptionPane.showMessageDialog(this, "You have been registered successfully.");
+
+                rUsername.setText("");
+                rFirstName.setText("");
+                rLastName.setText("");
+                rEmail.setText("");
+                rPassword.setText("");
+                jPasswordField2.setText("");
+            }
         } catch (SQLException ex) {
             System.out.println("Error: " + ex.getMessage());
         }
