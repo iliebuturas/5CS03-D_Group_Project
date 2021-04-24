@@ -9,7 +9,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import org.sqlite.core.DB;
 
 /**
  *
@@ -21,7 +20,7 @@ public class registeredUserTable {
 
     public static void main(String[] args) {
         showAll();
-        insert("insertName", "No", "Joe", "Smith", "adasdb@gmail.com", "123456"); // test your new method
+        insert("insertName", "No", "Joe", "Smith", "adasdb@gmail.com", "123456");
         showAll();
     }
 
