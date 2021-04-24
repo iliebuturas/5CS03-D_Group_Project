@@ -6,6 +6,7 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="b" green="db" red="ff" type="rgb"/>
     </Property>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -274,7 +275,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="ShowLocalAuBtn" pref="133" max="32767" attributes="0"/>
+                          <Component id="ShowLocalAuBtn" pref="0" max="32767" attributes="0"/>
                           <Component id="ShowRoadBtn" max="32767" attributes="0"/>
                           <Component id="ShowRegionBtn" max="32767" attributes="0"/>
                       </Group>

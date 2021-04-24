@@ -51,6 +51,7 @@ public class AccountScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 219, 19));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 219, 19));
 
@@ -93,7 +94,6 @@ public class AccountScreen extends javax.swing.JFrame {
         jPanel6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.darkGray, null, null));
 
         jButton1.setText("Raw DB Data");
-        jButton1.setActionCommand("Raw DB Data");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -104,7 +104,6 @@ public class AccountScreen extends javax.swing.JFrame {
         jLabel1.setText("Access Tabs");
 
         jButton3.setText("Graphs");
-        jButton3.setActionCommand("Graphs");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -177,7 +176,7 @@ public class AccountScreen extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(email)
                     .addComponent(emailContent))
                 .addGap(18, 18, 18)
