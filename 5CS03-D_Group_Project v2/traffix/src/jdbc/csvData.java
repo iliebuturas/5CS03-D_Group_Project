@@ -130,8 +130,8 @@ else {
                     int northing = Integer.parseInt(splitSt[16]);
                     float latitude = Float.parseFloat(splitSt[17]);
                     float longitude = Float.parseFloat(splitSt[18]);
-                    Double link_length_km = Double.parseDouble(splitSt[19]);
-                    Double link_length_miles = Double.parseDouble(splitSt[20]);
+                    double link_length_km = Double.parseDouble(splitSt[19]);
+                    double link_length_miles = Double.parseDouble(splitSt[20]);
 //                    Double d_km = Double.valueOf(splitSt[19]);
 //                    BigDecimal link_length_km = BigDecimal.valueOf(d_km);
 //                    Double d_m = Double.valueOf(splitSt[20]);
