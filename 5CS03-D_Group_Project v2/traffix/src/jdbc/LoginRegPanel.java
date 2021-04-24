@@ -363,30 +363,29 @@ public class LoginRegPanel extends javax.swing.JFrame {
                 String dbusername = rs.getString("username");
 
                 System.out.println("row data :" + dbusername);
-
-                if (dbusername.equals(rusername)) {
+                if (rusername.equals("") || rfname.equals("") || rlname.equals("") || remail.equals("") || pwd1.equals("") || pwd2.equals("")) {
+                    JOptionPane.showMessageDialog(this, "Please fill out all fields!");
+                } else if (dbusername.equals(rusername)) {
                     JOptionPane.showMessageDialog(this, "This username is already registered!");
                 } else if (emailResultSet.next()) {
                     JOptionPane.showMessageDialog(this, "This email is already registered!");
                 } else if (!remail.matches(emailRegex)) {
                     JOptionPane.showMessageDialog(this, "Email not in valid format!");
-                } else if (rusername.equals("") || rfname.equals("") || rlname.equals("") || remail.equals("") || pwd1.equals("") || pwd2.equals("")) {
-                    JOptionPane.showMessageDialog(this, "Please fill out all fields!");
                 } else if (!pwd1.equals(pwd2)) {
                     JOptionPane.showMessageDialog(this, "Passwords do not match!");
+                } 
+            }else {
+                    registeredUserTable.insert(rusername, flag, rfname, rlname, remail, pwd1);
+
+                    JOptionPane.showMessageDialog(this, "You have been registered successfully.");
+
+                    rUsername.setText("");
+                    rFirstName.setText("");
+                    rLastName.setText("");
+                    rEmail.setText("");
+                    rPassword.setText("");
+                    jPasswordField2.setText("");
                 }
-            } else {
-                registeredUserTable.insert(rusername, flag, rfname, rlname, remail, pwd1);
-
-                JOptionPane.showMessageDialog(this, "You have been registered successfully.");
-
-                rUsername.setText("");
-                rFirstName.setText("");
-                rLastName.setText("");
-                rEmail.setText("");
-                rPassword.setText("");
-                jPasswordField2.setText("");
-            }
         } catch (SQLException ex) {
             System.out.println("Error: " + ex.getMessage());
         }
@@ -395,6 +394,7 @@ public class LoginRegPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterBtnActionPerformed
 
     private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
+        Connection con = connectUsersDB.getConnection();
         String uemail = email.getText();
         String upassword = password.getText();
 
@@ -409,10 +409,32 @@ public class LoginRegPanel extends javax.swing.JFrame {
             return;
         }
 
-        // Check in users query
-        String check = "SELECT email"
+        String checkLoginEmailDB = "SELECT email "
                 + "FROM Users "
                 + "WHERE email LIKE '" + uemail + "'";
+
+        System.out.println("" + checkLoginEmailDB);
+        Statement stmt = null;//con.createStatement();
+        ResultSet rs = null;
+
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(checkLoginEmailDB);
+
+            if (rs.next()) {
+
+                String dbemail = rs.getString("email");
+
+                System.out.println("row data :" + dbemail);
+
+                if (dbemail.equals(uemail)) {
+                    JOptionPane.showMessageDialog(this, "Logged in");
+
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
 
 //        if (uemail == check) {
 //            System.out.println("Welcome to account tab " + uemail + " " + rFirstName);
