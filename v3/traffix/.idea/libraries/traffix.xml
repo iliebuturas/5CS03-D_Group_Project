@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="traffix">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/traffix.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

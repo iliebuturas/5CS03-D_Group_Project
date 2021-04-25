@@ -334,7 +334,7 @@ public class LoginRegPanel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterBtnActionPerformed
-        Connection con = connectUsersDB.getConnection();
+         Connection con = connectUsersDB.getConnection();
         String rusername = rUsername.getText();
         String flag = "no";
         String rfname = rFirstName.getText();
@@ -342,49 +342,29 @@ public class LoginRegPanel extends javax.swing.JFrame {
         String remail = rEmail.getText();
         String pwd1 = rPassword.getText();
         String pwd2 = jPasswordField2.getText();
-        ResultSet usernameResultSet = registeredUserTable.get(rusername);
         ResultSet emailResultSet = registeredUserTable.get(remail);
         String emailRegex = "^(.+)@(.+)$";
-
-        String checkUsernameDB = "SELECT username "
-                + "FROM Users "
-                + "WHERE username LIKE '" + rusername + "'";
-
-        System.out.println("" + checkUsernameDB);
-        Statement stmt = null;//con.createStatement();
-        ResultSet rs = null;
-
+      
         try {
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(checkUsernameDB);
+            if (emailResultSet.next()) {
+                JOptionPane.showMessageDialog(this, "This email is already registered!");
+            } else if (!remail.matches(emailRegex)) {
+                JOptionPane.showMessageDialog(this, "Email not in valid format!");
+            } else if (rusername.equals("") || rfname.equals("") || rlname.equals("") || remail.equals("") || pwd1.equals("") || pwd2.equals("")) {
+                JOptionPane.showMessageDialog(this, "Please fill out all fields!");
+            } else if (!pwd1.equals(pwd2)) {
+                JOptionPane.showMessageDialog(this, "Passwords do not match!");
+            } else {
+                registeredUserTable.insert(rusername, flag, rfname, rlname, remail, pwd1);
 
-            if (rs.next()) {
+                JOptionPane.showMessageDialog(this, "You have been registered successfully.");
 
-                String dbusername = rs.getString("username");
-
-                System.out.println("row data :" + dbusername);
-                if (rusername.equals("") || rfname.equals("") || rlname.equals("") || remail.equals("") || pwd1.equals("") || pwd2.equals("")) {
-                    JOptionPane.showMessageDialog(this, "Please fill out all fields!");
-                } else if (dbusername.equals(rusername)) {
-                    JOptionPane.showMessageDialog(this, "This username is already registered!");
-                } else if (emailResultSet.next()) {
-                    JOptionPane.showMessageDialog(this, "This email is already registered!");
-                } else if (!remail.matches(emailRegex)) {
-                    JOptionPane.showMessageDialog(this, "Email not in valid format!");
-                } else if (!pwd1.equals(pwd2)) {
-                    JOptionPane.showMessageDialog(this, "Passwords do not match!");
-                } 
-            }else {
-                    registeredUserTable.insert(rusername, flag, rfname, rlname, remail, pwd1);
-
-                    JOptionPane.showMessageDialog(this, "You have been registered successfully.");
-
-                    rUsername.setText("");
-                    rFirstName.setText("");
-                    rLastName.setText("");
-                    rEmail.setText("");
-                    rPassword.setText("");
-                    jPasswordField2.setText("");
+                rUsername.setText("");
+                rFirstName.setText("");
+                rLastName.setText("");
+                rEmail.setText("");
+                rPassword.setText("");
+                jPasswordField2.setText("");
                 }
         } catch (SQLException ex) {
             System.out.println("Error: " + ex.getMessage());
