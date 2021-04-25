@@ -248,14 +248,14 @@ public class AccountScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_backActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Vasil_RawDbData rawDataGui = new Vasil_RawDbData();
+        RawDbData rawDataGui = new RawDbData();
         rawDataGui.setVisible(true);
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Vasil_GraphsTab rawDataGui = new Vasil_GraphsTab();
+        GraphsTab rawDataGui = new GraphsTab();
         rawDataGui.setVisible(true);
         this.setVisible(false);
         this.dispose();

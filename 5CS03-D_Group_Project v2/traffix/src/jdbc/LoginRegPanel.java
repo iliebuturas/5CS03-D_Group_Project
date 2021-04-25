@@ -334,8 +334,7 @@ public class LoginRegPanel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterBtnActionPerformed
-         Connection con = connectUsersDB.getConnection();
-        String rusername = rUsername.getText();
+               String rusername = rUsername.getText();
         String flag = "no";
         String rfname = rFirstName.getText();
         String rlname = rLastName.getText();
@@ -343,50 +342,20 @@ public class LoginRegPanel extends javax.swing.JFrame {
         String pwd1 = rPassword.getText();
         String pwd2 = jPasswordField2.getText();
         ResultSet emailResultSet = registeredUserTable.get(remail);
-        String emailRegex = "^(.+)@(.+)$";
-      
+        ResultSet usernameResultSet = registeredUserTable.getUsername(rusername);
+        String emailRegex = "^[_a-z0-9-]+(\\.[a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,3})$";
+
         try {
-<<<<<<< HEAD
-            if (emailResultSet.next()) {
+            if (rusername.equals("") || rfname.equals("") || rlname.equals("") || remail.equals("") || pwd1.equals("") || pwd2.equals("")) {
+                JOptionPane.showMessageDialog(this, "Please fill out all fields!");
+            } else if (usernameResultSet.next()) {
+                JOptionPane.showMessageDialog(this, "This username is already registered!");
+            } else if (emailResultSet.next()) {
                 JOptionPane.showMessageDialog(this, "This email is already registered!");
             } else if (!remail.matches(emailRegex)) {
                 JOptionPane.showMessageDialog(this, "Email not in valid format!");
-            } else if (rusername.equals("") || rfname.equals("") || rlname.equals("") || remail.equals("") || pwd1.equals("") || pwd2.equals("")) {
-                JOptionPane.showMessageDialog(this, "Please fill out all fields!");
             } else if (!pwd1.equals(pwd2)) {
                 JOptionPane.showMessageDialog(this, "Passwords do not match!");
-            } else {
-                registeredUserTable.insert(rusername, flag, rfname, rlname, remail, pwd1);
-
-                JOptionPane.showMessageDialog(this, "You have been registered successfully.");
-
-                rUsername.setText("");
-                rFirstName.setText("");
-                rLastName.setText("");
-                rEmail.setText("");
-                rPassword.setText("");
-                jPasswordField2.setText("");
-=======
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(checkUsernameDB);
-
-            if (rs.next()) {
-
-                String dbusername = rs.getString("username");
-
-                System.out.println("row data :" + dbusername);
-                if (rusername.equals("") || rusername == " " || rfname.equals("") || rlname.equals("") || remail.equals("") || pwd1.equals("") || pwd2.equals("")) {
-                    JOptionPane.showMessageDialog(this, "Please fill out all fields!");
-                } else if (dbusername.equals(rusername)) {
-                    JOptionPane.showMessageDialog(this, "This username is already registered!");
-                } else if (emailResultSet.next()) {
-                    JOptionPane.showMessageDialog(this, "This email is already registered!");
-                } else if (!remail.matches(emailRegex)) {
-                    JOptionPane.showMessageDialog(this, "Email not in valid format!");
-                } else if (!pwd1.equals(pwd2)) {
-                    JOptionPane.showMessageDialog(this, "Passwords do not match!");
->>>>>>> 414572375ca89c3c6db908ad1da6aa59e91fe66b
-                }
             } else {
                 registeredUserTable.insert(rusername, flag, rfname, rlname, remail, pwd1);
 
@@ -401,24 +370,7 @@ public class LoginRegPanel extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
             System.out.println("Error: " + ex.getMessage());
-        }finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
         }
-
-
     }//GEN-LAST:event_RegisterBtnActionPerformed
 
     private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
@@ -510,7 +462,7 @@ public class LoginRegPanel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rUsernameActionPerformed
 
-
+    
     private void ClearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearBtnActionPerformed
 
         rUsername.setText("");

@@ -312,33 +312,36 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="SignupText" min="-2" max="-2" attributes="0"/>
-                          <Component id="SignupTitle" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="PasswordLb" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="EmailLb" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="rEmail" alignment="0" max="32767" attributes="0"/>
-                              <Component id="LastNameLb" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="rLastName" alignment="0" max="32767" attributes="0"/>
-                              <Component id="FirstNamelb" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="rFirstName" alignment="0" max="32767" attributes="0"/>
-                              <Component id="UsernameLb" min="-2" max="-2" attributes="0"/>
-                              <Component id="rUsername" alignment="0" max="32767" attributes="0"/>
-                              <Component id="ConfirmPasswordLb" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="rPassword" max="32767" attributes="0"/>
-                              <Component id="jPasswordField2" min="-2" pref="220" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="SignupText" min="-2" max="-2" attributes="0"/>
+                                  <Component id="SignupTitle" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="PasswordLb" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="EmailLb" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rEmail" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="LastNameLb" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rLastName" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="FirstNamelb" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rFirstName" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="UsernameLb" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rUsername" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="ConfirmPasswordLb" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rPassword" max="32767" attributes="0"/>
+                                      <Component id="jPasswordField2" min="-2" pref="220" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                              <Component id="RegisterBtn" min="-2" pref="121" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="ClearBtn" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="RegisterBtn" min="-2" pref="121" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="ClearBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>

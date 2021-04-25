@@ -17,12 +17,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Group D
  */
-public class Vasil_GraphsTab extends javax.swing.JFrame {
+public class GraphsTab extends javax.swing.JFrame {
 
     /**
      * Creates new form jTableCode
      */
-    public Vasil_GraphsTab() {
+    public GraphsTab() {
         initComponents();
     }
 
@@ -352,7 +352,7 @@ public class Vasil_GraphsTab extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Vasil_RawDbData rawDataGui = new Vasil_RawDbData();
+        RawDbData rawDataGui = new RawDbData();
         rawDataGui.setVisible(true);
         this.setVisible(false);
         this.dispose();
@@ -375,13 +375,13 @@ public class Vasil_GraphsTab extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Vasil_GraphsTab.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GraphsTab.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Vasil_GraphsTab.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GraphsTab.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Vasil_GraphsTab.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GraphsTab.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Vasil_GraphsTab.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GraphsTab.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -419,7 +419,7 @@ public class Vasil_GraphsTab extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Vasil_GraphsTab().setVisible(true);
+                new GraphsTab().setVisible(true);
             }
         });
     }

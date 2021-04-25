@@ -71,7 +71,37 @@ public class registeredUserTable {
             return result;
         }
     }
-
+    
+    public static ResultSet getUsername(String username) {
+        Connection conn = connectUsersDB.getConnection();
+        String sql = "SELECT * FROM Users WHERE username = '" + username + "'";
+        ResultSet result = null;
+        try {
+            Statement statement = conn.createStatement();
+            result = statement.executeQuery(sql);
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("Error while getting from Users table" + e.getMessage());
+        } finally {
+            return result;
+        }
+    }
+    
+    public static ResultSet getPassword(String password) {
+        Connection conn = connectUsersDB.getConnection();
+        String sql = "SELECT * FROM Users WHERE password = '" + password + "'";
+        ResultSet result = null;
+        try {
+            Statement statement = conn.createStatement();
+            result = statement.executeQuery(sql);
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("Error while getting from Users table" + e.getMessage());
+        } finally {
+            return result;
+        }
+    }
+    
     public static void showAll() {
         Connection con = connectUsersDB.getConnection();
         Statement stmt = null;
