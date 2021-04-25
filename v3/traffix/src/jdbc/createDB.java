@@ -12,7 +12,7 @@ import java.sql.DriverManager;
 
 /**
  *
- * @author 
+ * @author Group D
  */
 public class createDB {
 

@@ -7,7 +7,7 @@ package jdbc;
 
 /**
  *
- * @author Vasilis
+ * @author Group D
  */
 public class ProgramStart {
     public static void main(String[] args) {

@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author glukka
+ * @author Group D
  */
 public class Vasil_RawDbData extends javax.swing.JFrame {
 

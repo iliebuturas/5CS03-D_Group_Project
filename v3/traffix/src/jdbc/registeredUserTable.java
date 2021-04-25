@@ -12,7 +12,7 @@ import java.sql.Statement;
 
 /**
  *
- * @author Vasilis
+ * @author Group D
  */
 public class registeredUserTable {
 

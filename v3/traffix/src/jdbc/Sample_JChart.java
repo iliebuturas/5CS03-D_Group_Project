@@ -26,7 +26,7 @@ import org.jfree.data.jdbc.JDBCCategoryDataset;
 
 /**
  *
- * @author glukka
+ * @author Group D
  */
 public class Sample_JChart extends javax.swing.JFrame {
 

@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Vasilis
+ * @author Group D
  */
 public class LoginRegPanel extends javax.swing.JFrame {
     /**
@@ -426,68 +426,6 @@ public class LoginRegPanel extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println("Error: " + ex.getMessage());
         }
-        /*if (uemail.equals("") || upassword.equals("")) {
-            JOptionPane.showMessageDialog(this, "Please fill out all fields");
-            return;
-        }
-
-        String emailRegex = "^(.+)@(.+)$";
-        if (!uemail.matches(emailRegex)) {
-            JOptionPane.showMessageDialog(this, "Email not in valid format");
-            return;
-        }
-
-        
-
-        System.out.println("" + checkLoginEmailDB);
-        
-
-        try {
-            stmt = con.createStatement();
-            
-
-            if (rs.next()) {
-
-                String dbemail = rs.getString("email");
-
-                System.out.println("row data :" + dbemail);
-
-                if (dbemail.equals(uemail)) {
-                    JOptionPane.showMessageDialog(this, "Logged in");
-
-                }
-            }
-        } catch (SQLException ex) {
-            System.out.println("Error: " + ex.getMessage());
-        }
-
-//        if (uemail == check) {
-//            System.out.println("Welcome to account tab " + uemail + " " + rFirstName);
-        AccountScreen gui2 = new AccountScreen(uemail, upassword);
-        gui2.setVisible(true);
-        this.setVisible(false);
-        this.dispose();
-        
-        AccountScreen ac = new AccountScreen();
-        
-        
-        else
-        {
-            // Login user
-            conn.login(uemail,upassword);
-            
-            if(db.userExists == true){
-                this.setVisible(false);
-                this.dispose();
-                
-                ac.userLogin(db.admin, db.fname, db.lname, db.email);
-                ac.setVisible(true);
-            }
-            else{
-                System.out.println("error user doesnt exist!");
-            }
-            
-        }*/
 
 
     }//GEN-LAST:event_LoginBtnActionPerformed

@@ -7,7 +7,7 @@ package jdbc;
 
 /**
  *
- * @author Vasilis
+ * @author Group D
  */
 public class AccountScreen extends javax.swing.JFrame {
 
