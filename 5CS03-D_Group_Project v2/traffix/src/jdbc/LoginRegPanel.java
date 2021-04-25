@@ -377,7 +377,7 @@ public class LoginRegPanel extends javax.swing.JFrame {
         Connection con = connectUsersDB.getConnection();
         String uemail = email.getText();
         String upassword = password.getText();
-
+        ResultSet emailResultSet = registeredUserTable.get(uemail);
         if (uemail.equals("") || upassword.equals("")) {
             JOptionPane.showMessageDialog(this, "Please fill out all fields");
             return;
