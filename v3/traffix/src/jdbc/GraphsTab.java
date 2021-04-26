@@ -5,6 +5,7 @@
  */
 package jdbc;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -12,6 +13,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.data.jdbc.JDBCCategoryDataset;
 
 /**
  *
@@ -264,7 +272,7 @@ public class GraphsTab extends javax.swing.JFrame {
     private void ShowRoadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowRoadBtnActionPerformed
         // TODO add your handling code here:
         clearTable(); //clear previous data
-        showRoadTable(); //add new data
+        drawBar(); //add new data
     }//GEN-LAST:event_ShowRoadBtnActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -422,6 +430,73 @@ public class GraphsTab extends javax.swing.JFrame {
                 new GraphsTab().setVisible(true);
             }
         });
+    }
+    
+    public void drawBar() {
+        Connection con = connectTrafficDB.getConnection();
+        Statement stmt = null;
+        JDBCCategoryDataset dataset = null;
+
+        try {
+
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("Select * from Road");
+
+            int n = 0;
+            while (rs.next()) {
+                int numColumns = rs.getMetaData().getColumnCount();
+                n++;
+                for (int i = 1; i <= numColumns; i++) {
+                    System.out.print(" " + rs.getObject(i));
+                }
+
+                System.out.println("");
+            }
+
+            rs.close();
+
+            String sql = "SELECT road_name, count(*) As Number_Of FROM Road GROUP BY road_name ";
+
+            dataset = new JDBCCategoryDataset(con, sql);
+
+            System.out.println("dataset cols and rows : " + dataset.getColumnCount() + "  " + dataset.getRowCount());
+
+        } catch (SQLException ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+        }
+
+        JFreeChart chart = ChartFactory.createBarChart("Road name by road type",
+                "Road names", "Road name count", dataset, PlotOrientation.VERTICAL, false, true, false);
+        chart.setBackgroundPaint(Color.white);
+        chart.getTitle().setPaint(Color.blue);
+
+        CategoryPlot p = chart.getCategoryPlot();
+        p.setRangeGridlinePaint(Color.blue);
+        BarRenderer renderer = (BarRenderer) p.getRenderer();
+        renderer.setDrawBarOutline(true);
+        renderer.setShadowVisible(true);
+        renderer.setItemMargin(-4);
+        renderer.setSeriesPaint(0, Color.blue);
+
+        ChartFrame frame = new ChartFrame("Roads by types", chart);
+        frame.setVisible(true);
+        frame.setSize(1200, 700);
+
     }
 
     public void clearTable() {

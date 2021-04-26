@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 
 /**
@@ -101,7 +102,7 @@ public class csvData {
 
                 } else {
                     System.out.println("Duplicate record with pk :" + splitSt[9]);
-                } 
+                }
 
 //                if (!IdChecker.contains(splitSt[0])) {
 //                    IdChecker.add(splitSt[0]);
@@ -129,6 +130,7 @@ public class csvData {
                     double longitude = Double.parseDouble(splitSt[18]);
                     double link_length_km = Double.parseDouble(splitSt[19]);
                     double link_length_miles = Double.parseDouble(splitSt[20]);
+                    
 //                    Double d_km = Double.valueOf(splitSt[19]);
 //                    BigDecimal link_length_km = BigDecimal.valueOf(d_km);
 //                    Double d_m = Double.valueOf(splitSt[20]);
@@ -151,26 +153,27 @@ public class csvData {
                     System.out.println("Duplicate record on count with pk :" + splitSt[0]);
                 }
 
-//                if (!IdChecker.contains(splitSt[9])) {
-//                    IdChecker.add(splitSt[9]);
-//                    String road_name = splitSt[9];
-//                    String road_type = splitSt[10];
-//                //int local_authority_id = Integer.parseInt(splitSt[7]);
-//                    
-//                String sqlString = "INSERT OR IGNORE INTO Count (count_id, direction_of_travel, count_date, year, hour, pedal_cycles, two_wheeled_motor_vehicles, cars_and_taxis, buses_and_coaches, lgvs, hgvs_2_rigid_axle, hgvs_3_rigid_axle, hgvs_4_or_more_rigid_axle, hgvs_3_or_4_articulated_axle, hgvs_5_articulated_axle, hgvs_6_articulated_axle, all_hgvs, all_motor_vehicles) VALUES ('" + road_name + "','" + road_type + "');";
-//                    System.out.println("sqlString : "+ sqlString);
-//                    con.setAutoCommit(false);
-//                    stmt = con.createStatement();
-//
-//                    stmt.executeUpdate(sqlString);
-//                    stmt.close();
-//                    con.commit();
-//
-//                } 
-//            else {
-//                    System.out.println("Duplicate record with pk :" + splitSt[9]);
-//                }
-//                
+                if (!IdChecker.contains(splitSt[1])) {
+                    IdChecker.add(splitSt[1]);
+                    String direction_of_travel = splitSt[1];
+                    System.out.println(direction_of_travel);
+                    //String count_date = splitSt[2];
+                    // String road_type = splitSt[10];
+                    //int local_authority_id = Integer.parseInt(splitSt[7]);
+                    String sqlString = "INSERT OR IGNORE INTO Count (direction_of_travel) VALUES ('" + direction_of_travel + "');";
+//                String sqlString = "INSERT OR IGNORE INTO Count (direction_of_travel, count_date, year, hour, pedal_cycles, two_wheeled_motor_vehicles, cars_and_taxis, buses_and_coaches, lgvs, hgvs_2_rigid_axle, hgvs_3_rigid_axle, hgvs_4_or_more_rigid_axle, hgvs_3_or_4_articulated_axle, hgvs_5_articulated_axle, hgvs_6_articulated_axle, all_hgvs, all_motor_vehicles) VALUES ('" + road_name + "','" + road_type + "');";
+                    System.out.println("sqlString : " + sqlString);
+                    con.setAutoCommit(false);
+                    stmt = con.createStatement();
+
+                    stmt.executeUpdate(sqlString);
+                    stmt.close();
+                    con.commit();
+
+                } else {
+                    System.out.println("Duplicate record with pk :" + splitSt[9]);
+                }
+
             }
         } catch (IOException | NumberFormatException | SQLException e) {
             //System.out.println(e.getMessage());

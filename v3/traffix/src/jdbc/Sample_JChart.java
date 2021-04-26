@@ -5,9 +5,6 @@ package jdbc;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
-
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -144,13 +141,12 @@ public class Sample_JChart extends javax.swing.JFrame {
         int row_id = Integer.parseInt((String) jTable1.getModel().getValueAt(row, 0));
         int row_id1 = Integer.valueOf((String) jTable1.getModel().getValueAt(row, 0));
         System.out.println("row_id: " + row_id + " row_id1 " + row_id1);
-        
+
         Connection con = connectTrafficDB.getConnection();
         Statement stmt = null;//con.createStatement();
         ResultSet rs = null;
         try {
 
-            
             String sql = "select * from employee where empID=" + row_id;
             System.out.println("sql string for table row data :" + sql);
             stmt = con.createStatement();
@@ -166,7 +162,7 @@ public class Sample_JChart extends javax.swing.JFrame {
                 System.out.println("row data :" + id + " " + name + " " + job + " " + sal);
 
             }
-            
+
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
 
@@ -257,7 +253,7 @@ public class Sample_JChart extends javax.swing.JFrame {
         try {
             stmt = con.createStatement();
 
-            rs = stmt.executeQuery("Select * from employee ");
+            rs = stmt.executeQuery("Select * from Road ");
             // get columns info
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnCount = rsmd.getColumnCount();
@@ -306,19 +302,18 @@ public class Sample_JChart extends javax.swing.JFrame {
                 }
             }
         }
-
     }
-     public void drawBar() {
+
+    public void drawBar() {
         Connection con = connectTrafficDB.getConnection();
         Statement stmt = null;
         JDBCCategoryDataset dataset = null;
 
-       
         try {
 
             stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("Select * from employee limit 6");
-            
+            ResultSet rs = stmt.executeQuery("Select * from Road limit 6");
+
             int n = 0;
             while (rs.next()) {
                 int numColumns = rs.getMetaData().getColumnCount();
@@ -331,14 +326,13 @@ public class Sample_JChart extends javax.swing.JFrame {
             }
 
             rs.close();
-            
 
-            String sql = "SELECT empJob, count(*) As Number_Of FROM employee GROUP BY empJob ";
+            String sql = "SELECT road_name, count(*) As Number_Of FROM Road GROUP BY road_name ";
 
             dataset = new JDBCCategoryDataset(con, sql);
 
             System.out.println("dataset cols and rows : " + dataset.getColumnCount() + "  " + dataset.getRowCount());
-            
+
         } catch (SQLException ex) {
             System.err.println("SQLException: " + ex.getMessage());
         } finally {
@@ -357,8 +351,9 @@ public class Sample_JChart extends javax.swing.JFrame {
                 }
             }
         }
-        JFreeChart chart = ChartFactory.createBarChart("Emp by Jobs",
-                "Job types", "Emp Numbers", dataset, PlotOrientation.VERTICAL, false, true, false);
+
+        JFreeChart chart = ChartFactory.createBarChart("Road name by road type",
+                "Road types", "Road name count", dataset, PlotOrientation.VERTICAL, false, true, false);
         chart.setBackgroundPaint(Color.white);
         chart.getTitle().setPaint(Color.blue);
 
@@ -370,10 +365,9 @@ public class Sample_JChart extends javax.swing.JFrame {
         renderer.setItemMargin(-4);
         renderer.setSeriesPaint(0, Color.blue);
 
-        ChartFrame frame = new ChartFrame("Emp by Jobs", chart);
+        ChartFrame frame = new ChartFrame("Roads by types", chart);
         frame.setVisible(true);
         frame.setSize(400, 350);
-       
 
     }
 
