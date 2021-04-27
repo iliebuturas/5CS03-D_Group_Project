@@ -25,6 +25,7 @@ public class registeredUserTable {
         showAll();
     }
     
+    //insert new user to the Users database
     public static void insert(String username,String adminFlag,String firstName,String lastName,String email,String password) {
         Connection con = connectUsersDB.getConnection();
         Statement stmt = null;
@@ -56,7 +57,8 @@ public class registeredUserTable {
             }
         }
     }
-
+    
+    //get email from Users database
     public static ResultSet get(String email) {
         Connection conn = connectUsersDB.getConnection();
         String sql = "SELECT * FROM Users WHERE email = '" + email + "'";

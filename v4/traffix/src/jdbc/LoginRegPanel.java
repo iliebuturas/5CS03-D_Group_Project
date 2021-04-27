@@ -372,8 +372,10 @@ public class LoginRegPanel extends javax.swing.JFrame {
         String remail = rEmail.getText();
         String pwd1 = rPassword.getText();
         String pwd2 = jPasswordField2.getText();
+        //get email and username from database
         ResultSet emailResultSet = registeredUserTable.get(remail);
         ResultSet usernameResultSet = registeredUserTable.getUsername(rusername);
+        //check if email in correct format
         String emailRegex = "^[_a-z0-9-]+(\\.[a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,3})$";
 
         try {
@@ -388,6 +390,7 @@ public class LoginRegPanel extends javax.swing.JFrame {
             } else if (!pwd1.equals(pwd2)) {
                 JOptionPane.showMessageDialog(this, "Passwords do not match!");
             } else {
+                //add user to database (from registeredUserTable)
                 registeredUserTable.insert(rusername, flag, rfname, rlname, remail, pwd1);
 
                 JOptionPane.showMessageDialog(this, "You have been registered successfully.");

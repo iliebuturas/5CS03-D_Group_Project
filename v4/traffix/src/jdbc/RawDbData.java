@@ -278,7 +278,7 @@ public class RawDbData extends javax.swing.JFrame {
         clearTable(); //clear previous data
         showRoadTable(); //add new data
     }//GEN-LAST:event_ShowRoadBtnActionPerformed
-
+//fetch data when row clicked on table
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         int row = jTable1.getSelectedRow();
