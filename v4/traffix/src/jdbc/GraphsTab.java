@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.demo.PieChartDemo1;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
@@ -61,6 +62,7 @@ public class GraphsTab extends javax.swing.JFrame {
         emailLabel = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         ShowRoadBtn = new javax.swing.JButton();
+        ShowRoadBtn1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 219, 11));
@@ -182,10 +184,18 @@ public class GraphsTab extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(255, 219, 11));
         jPanel8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.darkGray, null, null));
 
-        ShowRoadBtn.setText("Show Road Graph");
+        ShowRoadBtn.setText("Road Graph");
+        ShowRoadBtn.setToolTipText("");
         ShowRoadBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ShowRoadBtnActionPerformed(evt);
+            }
+        });
+
+        ShowRoadBtn1.setText("Road Types Graph");
+        ShowRoadBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowRoadBtn1ActionPerformed(evt);
             }
         });
 
@@ -195,7 +205,9 @@ public class GraphsTab extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ShowRoadBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ShowRoadBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ShowRoadBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -203,6 +215,8 @@ public class GraphsTab extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addComponent(ShowRoadBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ShowRoadBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -249,7 +263,7 @@ public class GraphsTab extends javax.swing.JFrame {
     private void ShowRoadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowRoadBtnActionPerformed
         // TODO add your handling code here:
         clearTable(); //clear previous data
-        drawBar(); //add new data
+        drawRoads_BarChart(); //add new data
     }//GEN-LAST:event_ShowRoadBtnActionPerformed
 
 //fetch data when row clicked on table
@@ -336,6 +350,10 @@ public class GraphsTab extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_RawDataBtnActionPerformed
 
+    private void ShowRoadBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowRoadBtn1ActionPerformed
+        drawRoadTypes_BarChart();
+    }//GEN-LAST:event_ShowRoadBtn1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -402,7 +420,7 @@ public class GraphsTab extends javax.swing.JFrame {
         });
     }
     
-    public void drawBar() {
+    public void drawRoads_BarChart() {
         Connection con = connectTrafficDB.getConnection();
         Statement stmt = null;
         JDBCCategoryDataset dataset = null;
@@ -465,10 +483,77 @@ public class GraphsTab extends javax.swing.JFrame {
 
         ChartFrame frame = new ChartFrame("Roads by types", chart);
         frame.setVisible(true);
-        frame.setSize(1200, 700);
+        frame.setSize(1200, 400);
 
     }
+    public void drawRoadTypes_BarChart(){
+        Connection con = connectTrafficDB.getConnection();
+        Statement stmt = null;
+        JDBCCategoryDataset dataset = null;
 
+        try {
+
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("Select * from Road");
+
+            int n = 0;
+            while (rs.next()) {
+                int numColumns = rs.getMetaData().getColumnCount();
+                n++;
+                for (int i = 1; i <= numColumns; i++) {
+                    System.out.print(" " + rs.getObject(i));
+                }
+
+                System.out.println("");
+            }
+
+            rs.close();
+
+            String sql = "SELECT road_type, count(*) As Number_Of FROM Road GROUP BY road_type ";
+
+            dataset = new JDBCCategoryDataset(con, sql);
+
+            System.out.println("dataset cols and rows : " + dataset.getColumnCount() + "  " + dataset.getRowCount());
+
+        } catch (SQLException ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+        }
+
+        JFreeChart chart = ChartFactory.createBarChart("Road type",
+                "Road Types", "Road type count", dataset, PlotOrientation.VERTICAL, false, true, false);
+        chart.setBackgroundPaint(Color.white);
+        chart.getTitle().setPaint(Color.blue);
+
+        CategoryPlot p = chart.getCategoryPlot();
+        p.setRangeGridlinePaint(Color.blue);
+        BarRenderer renderer = (BarRenderer) p.getRenderer();
+        renderer.setDrawBarOutline(true);
+        renderer.setShadowVisible(true);
+        renderer.setItemMargin(-4);
+        renderer.setSeriesPaint(0, Color.blue);
+
+        ChartFrame frame = new ChartFrame("Road types", chart);
+        frame.setVisible(true);
+        frame.setSize(500, 250);
+
+    }
+    
+    
     public void clearTable() {
         DefaultTableModel tm = (DefaultTableModel) jTable1.getModel();
         // clear existing columns 
@@ -664,6 +749,7 @@ public class GraphsTab extends javax.swing.JFrame {
     private javax.swing.JButton LogoutBtn;
     private javax.swing.JButton RawDataBtn;
     private javax.swing.JButton ShowRoadBtn;
+    private javax.swing.JButton ShowRoadBtn1;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;

@@ -270,7 +270,10 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="ShowRoadBtn" min="-2" pref="117" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="ShowRoadBtn" min="-2" pref="117" max="-2" attributes="0"/>
+                          <Component id="ShowRoadBtn1" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace pref="16" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -280,6 +283,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                       <Component id="ShowRoadBtn" min="-2" pref="40" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="ShowRoadBtn1" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -288,10 +293,19 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="ShowRoadBtn">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Show Road Graph"/>
+                <Property name="text" type="java.lang.String" value="Road Graph"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ShowRoadBtnActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="ShowRoadBtn1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Road Types Graph"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ShowRoadBtn1ActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
