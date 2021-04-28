@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Group D
+ * @author Vasil Dzhakov
  */
 public class RawDbData extends javax.swing.JFrame {
 

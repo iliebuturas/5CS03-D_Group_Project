@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 /**
  *
  * @author Group D
+ * @author Ille Buturas
  */
 public class connectTrafficDB {
 

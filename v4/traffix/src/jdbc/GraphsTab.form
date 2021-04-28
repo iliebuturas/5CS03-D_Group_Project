@@ -101,8 +101,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="ClearTableBtn" min="-2" pref="100" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
                                       <Component id="RawDataBtn" min="-2" pref="113" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -121,10 +120,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="367" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ClearTableBtn" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="RawDataBtn" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="RawDataBtn" pref="35" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -155,14 +151,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="ClearTableBtn">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Clear Table"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ClearTableBtnActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -282,11 +270,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="ShowLocalAuBtn" pref="0" max="32767" attributes="0"/>
-                          <Component id="ShowRoadBtn" max="32767" attributes="0"/>
-                          <Component id="ShowRegionBtn" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="ShowRoadBtn" min="-2" pref="117" max="-2" attributes="0"/>
                       <EmptySpace pref="16" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -294,40 +278,20 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="ShowRegionBtn" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                       <Component id="ShowRoadBtn" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="ShowLocalAuBtn" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="ShowRegionBtn">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Show Region Graph"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ShowRegionBtnActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="ShowRoadBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Show Road Graph"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ShowRoadBtnActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="ShowLocalAuBtn">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Show Local Authority "/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ShowLocalAuBtnActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

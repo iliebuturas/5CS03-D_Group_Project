@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Group D
+ * @author Keith Reyes
  */
 public class AdminPanel extends javax.swing.JFrame {
 

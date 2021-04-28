@@ -15,16 +15,18 @@ import java.time.LocalDateTime;
 /**
  *
  * @author Group D
+ * @author Vasil Dzhakov
+ * @author Ille Buturas
  */
 public class registeredUserTable {
 
     public static Connection con = connectUsersDB.getConnection();
 
-    public static void main(String[] args) {
-        //TESTING
-        //insert("KeithAdmin", "Yes", "Keith", "Smith", "Keith@gmail.com", "123456");
-        //showAll();
-    }
+//    public static void main(String[] args) {
+//        //TESTING
+//        //insert("KeithAdmin", "Yes", "Keith", "Smith", "Keith@gmail.com", "123456");
+//        //showAll();
+//    }
     
     //insert new user to the Users database
     public static void insert(String username,String adminFlag,String firstName,String lastName,String email,String password) {

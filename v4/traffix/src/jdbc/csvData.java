@@ -18,6 +18,7 @@ import java.util.Iterator;
 /**
  *
  * @author Group D
+ * @author Ille Buturas
  */
 public class csvData {
         

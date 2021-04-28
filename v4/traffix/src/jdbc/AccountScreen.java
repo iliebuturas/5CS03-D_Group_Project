@@ -15,6 +15,7 @@ import java.time.format.DateTimeFormatter;
 /**
  *
  * @author Group D
+ * @author Vasil Dzhakov
  */
 public class AccountScreen extends javax.swing.JFrame {
 

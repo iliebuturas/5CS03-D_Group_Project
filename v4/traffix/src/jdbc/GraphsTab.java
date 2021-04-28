@@ -24,6 +24,7 @@ import org.jfree.data.jdbc.JDBCCategoryDataset;
 /**
  *
  * @author Group D
+ * @author Vasil Dzhakov
  */
 public class GraphsTab extends javax.swing.JFrame {
 
@@ -51,7 +52,6 @@ public class GraphsTab extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        ClearTableBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         RawDataBtn = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
@@ -60,9 +60,7 @@ public class GraphsTab extends javax.swing.JFrame {
         AccountBtn = new javax.swing.JButton();
         emailLabel = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        ShowRegionBtn = new javax.swing.JButton();
         ShowRoadBtn = new javax.swing.JButton();
-        ShowLocalAuBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 219, 11));
@@ -90,13 +88,6 @@ public class GraphsTab extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        ClearTableBtn.setText("Clear Table");
-        ClearTableBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClearTableBtnActionPerformed(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel1.setText("Display Graphs ");
 
@@ -120,8 +111,7 @@ public class GraphsTab extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(ClearTableBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(118, 118, 118)
                                 .addComponent(RawDataBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -134,9 +124,7 @@ public class GraphsTab extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ClearTableBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RawDataBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(RawDataBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                 .addGap(15, 15, 15))
         );
 
@@ -194,24 +182,10 @@ public class GraphsTab extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(255, 219, 11));
         jPanel8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.darkGray, null, null));
 
-        ShowRegionBtn.setText("Show Region Graph");
-        ShowRegionBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ShowRegionBtnActionPerformed(evt);
-            }
-        });
-
         ShowRoadBtn.setText("Show Road Graph");
         ShowRoadBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ShowRoadBtnActionPerformed(evt);
-            }
-        });
-
-        ShowLocalAuBtn.setText("Show Local Authority ");
-        ShowLocalAuBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ShowLocalAuBtnActionPerformed(evt);
             }
         });
 
@@ -221,21 +195,14 @@ public class GraphsTab extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ShowLocalAuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(ShowRoadBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ShowRegionBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(ShowRoadBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(ShowRegionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(72, 72, 72)
                 .addComponent(ShowRoadBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(ShowLocalAuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -342,19 +309,6 @@ public class GraphsTab extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jTable1MouseClicked
-
-    private void ClearTableBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearTableBtnActionPerformed
-        clearTable();
-    }//GEN-LAST:event_ClearTableBtnActionPerformed
-
-    private void ShowLocalAuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowLocalAuBtnActionPerformed
-        clearTable();
-        showLocalAuTable();    }//GEN-LAST:event_ShowLocalAuBtnActionPerformed
-
-    private void ShowRegionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowRegionBtnActionPerformed
-        clearTable();
-        showRegionTable();
-    }//GEN-LAST:event_ShowRegionBtnActionPerformed
 
     private void LogoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutBtnActionPerformed
         LoginRegPanel loginPanel = new LoginRegPanel();
@@ -707,11 +661,8 @@ public class GraphsTab extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AccountBtn;
-    private javax.swing.JButton ClearTableBtn;
     private javax.swing.JButton LogoutBtn;
     private javax.swing.JButton RawDataBtn;
-    private javax.swing.JButton ShowLocalAuBtn;
-    private javax.swing.JButton ShowRegionBtn;
     private javax.swing.JButton ShowRoadBtn;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JLabel jLabel1;

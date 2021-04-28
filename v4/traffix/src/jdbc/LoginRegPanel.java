@@ -18,6 +18,9 @@ import java.util.logging.Logger;
 /**
  *
  * @author Group D
+ * @author Ille Buturas
+ * @author Vasil Dzhakov
+ * @author Keith Reyes
  */
 public class LoginRegPanel extends javax.swing.JFrame {
     /**
